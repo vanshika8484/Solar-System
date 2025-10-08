@@ -120,16 +120,16 @@ loader.load(
       ease: "none",
     });
 
-    // Sun glow
-    // const glowGeo = new THREE.SphereGeometry(20, 64, 64);
-    // const glowMat = new THREE.MeshBasicMaterial({
-    //   color: 0xffd27f,
-    //   transparent: true,
-    //   opacity: 0.4,
-    //   blending: THREE.AdditiveBlending,
-    // });
-    // const glow = new THREE.Mesh(glowGeo, glowMat);
-    // scene.add(glow);
+    // Sun glow - layer for natural appearance
+    const glowGeo = new THREE.SphereGeometry(25, 64, 64);
+    const glowMat = new THREE.MeshBasicMaterial({
+      color: 0xffaa44,
+      transparent: true,
+      opacity: 0.3,
+      blending: THREE.AdditiveBlending,
+    });
+    const glow = new THREE.Mesh(glowGeo, glowMat);
+    scene.add(glow);
   },
   undefined,
   (error) => console.error("Error loading sun.glb:", error)
@@ -309,7 +309,7 @@ function createStarLayer(count, size, spread, opacity, color = 0xffffff) {
     size: size * 0.6, // Keep stars small
     map: texture,
     transparent: true,
-    opacity: opacity * 4.0, // Further increase opacity for brighter stars
+    opacity: opacity * 3.0, // Further increase opacity for brighter stars
     vertexColors: true,
     blending: THREE.AdditiveBlending,
     depthWrite: false,
